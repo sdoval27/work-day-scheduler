@@ -9,9 +9,10 @@ $(function () {
     // function? How can DOM traversal be used to get the "hour-x" id of the
     // time-block containing the button that was clicked? How might the id be
     // useful when saving the description in local storage?
-    //
 
-
+    //event ('click', function() {
+    //when button is clicked, local storage is retreived for content within the box.
+    //}
 
     
     // 3) TODO: Add code to apply the past, present, or future class to each time
@@ -22,9 +23,9 @@ $(function () {
 
     // USE DIV ID's TO KEEP TRACK OF TIMES!!
 
-    //var textArea = query select the text blocks
+    //var textArea = document.queryselector('#calendar-event');
 
-    //var timeActual = current HOUR
+    //var timeActual = current HOUR as stated by calendar API
 
     //var timeCalendar= Use the id value of the time block
     //if (timeCalendar < timeActual){
@@ -42,7 +43,83 @@ $(function () {
     // attribute of each time-block be used to do this?
 
     //assign localStorage to each individual time block by ID
-    //var userEvents = []
+    
+    var hour9El = [];
+    hour9El = localStorage.getItem(hour9El);
+   
+    console.log(hour9El);
+
+    //const bttn9 = $("#save-9");
+    
+    var hour10El = [];
+    hour10El = localStorage.getItem(hour10El);
+
+    
+    
+    var hour11El = [];
+    hour11El = localStorage.getItem(hour11El);
+   
+    
+    var hour12El = [];
+    hour12El = localStorage.getItem(hour12El);
+   
+
+    var hour13El = [];
+    hour13El = localStorage.getItem(hour13El);
+    
+
+    var hour14El = [];
+    hour14El = localStorage.getItem(hour14El);
+    
+
+    var hour15El = [];
+    hour15El = localStorage.getItem(hour15El);
+    
+
+    var hour16El = [];
+    hour16El = localStorage.getItem(hour16El);
+    
+
+    var hour17El = [];
+    hour17El = localStorage.getItem(hour17El);
+    
+    var hour9Save = document.querySelector('#hour-9');
+    var hour10Save = document.querySelector('#hour-10');
+    var hour11Save = document.querySelector('#hour-11');
+    var hour12Save = document.querySelector('#hour-12');
+    var hour13Save = document.querySelector('#hour-13');
+    var hour14Save = document.querySelector('#hour-14');
+    var hour15Save = document.querySelector('#hour-15');
+    var hour16Save = document.querySelector('#hour-16');
+    var hour17Save = document.querySelector('#hour-17');
+
+
+
+    function saveEvent (){
+      hour9El = hour9Save.value;
+      hour10El = hour10Save.value;
+      hour11El = hour11Save.value;
+      hour12El = hour12Save.value;
+      hour13El = hour13Save.value;
+      hour14El = hour14Save.value;
+      hour15El = hour15Save.value;
+      hour16El = hour16Save.value;
+      hour17El = hour17Save.value;
+
+      hour9El = localStorage.getItem(hour9El);
+      hour10El = localStorage.getItem(hour10El);
+      hour11El = localStorage.getItem(hour11El);
+      hour12El = localStorage.getItem(hour12El);
+      hour13El = localStorage.getItem(hour13El);
+      hour14El = localStorage.getItem(hour14El);
+      hour15El = localStorage.getItem(hour15El);
+      hour16El = localStorage.getItem(hour16El);
+      hour17El = localStorage.getItem(hour17El);
+
+    }
+  
+
+
     //userEvents = get.localstorage('userevent');
     //var calendarInput = document.queryselector('#calendar-event');
     //function updateCalendar (){
