@@ -10,10 +10,29 @@ $(function () {
     // time-block containing the button that was clicked? How might the id be
     // useful when saving the description in local storage?
 
+    var saveBttn9 = $('#save-9');
+    var saveBttn10 = $('#save-10');
+    var saveBttn11 = $('#save-11');
+    var saveBttn12 = $('#save-12');
+    var saveBttn13 = $('#save-13');
+    var saveBttn14 = $('#save-14');
+    var saveBttn15 = $('#save-15');
+    var saveBttn16 = $('#save-16');
+    var saveBttn17 = $('#save-17');
+
     //event ('click', function() {
     //when button is clicked, local storage is retreived for content within the box.
     //}
 
+    saveBttn9.on ('click', saveEvent);
+    saveBttn10.on('click', saveEvent);
+    saveBttn11.on('click', saveEvent);
+    saveBttn12.on('click', saveEvent);
+    saveBttn13.on('click', saveEvent);
+    saveBttn14.on('click', saveEvent);
+    saveBttn15.on('click', saveEvent);
+    saveBttn16.on('click', saveEvent);
+    saveBttn17.on('click', saveEvent);
     
     // 3) TODO: Add code to apply the past, present, or future class to each time
     // block by comparing the id to the current hour. HINTS: How can the id
@@ -106,7 +125,7 @@ $(function () {
       hour16El = hour16Save.value;
       hour17El = hour17Save.value;
 
-      hour9El = localStorage.getItem(hour9El);
+      
       hour10El = localStorage.getItem(hour10El);
       hour11El = localStorage.getItem(hour11El);
       hour12El = localStorage.getItem(hour12El);
@@ -117,7 +136,9 @@ $(function () {
       hour17El = localStorage.getItem(hour17El);
 
     }
-  
+
+
+    
 
 
     //userEvents = get.localstorage('userevent');
