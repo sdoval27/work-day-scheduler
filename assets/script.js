@@ -46,24 +46,29 @@ $(function () {
 
     var textArea = $('#calendar-event');
     //turns the current hour into an integer
-    var currentHours = dayjs().format('h');
+    var currentHours = dayjs().format('H');
     var currentHour = parseInt(currentHours, 10);
     console.log(currentHour);
 
-    //targets each hour of calendar (translate from 24 hour to 12)
+    
+    //targets each hour of calendar
+
     for (i = 9; i <= 17; i++) {
-      var calendarHour = $('#hour-'+ i );
-      console.log(calendarHour);
-      console.log(i);
-      if (i < currentHour) {
-        calendarHour.addClass('past');
-      }else if (i === currentHour) {
-        calendarHour.addClass('present');
-      }else if(i > currentHour) {
-        calendarHour.addClass('future');
-      }
+
+    var calendarHour = $('#hour-'+ i );
+
+    console.log(calendarHour);
+    console.log(i);
+
+    if (i < currentHour) {
+      calendarHour.addClass('past');
+    }else if (i === currentHour) {
+      calendarHour.addClass('present');
+    }else if (i > currentHour) {
+      calendarHour.addClass('future');
     }
 
+  }
     //make color blocks match the current hour with gray for past hours, red current
     //hour, and green future hours
     
