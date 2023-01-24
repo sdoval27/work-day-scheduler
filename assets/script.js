@@ -1,6 +1,4 @@
-//calendar date
-var date = dayjs().format('dddd, MMMM D, YYYY h:mm A');
-$('#currentDay').text(date);
+
 
 //1) Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
@@ -154,4 +152,7 @@ $(function () {
 
     
     // 5) TODO: Add code to display the current date in the header of the page.
+    //calendar date
+   var date = dayjs().format('dddd, MMMM D, YYYY h:mm A');
+   $('#currentDay').text(date);
   });
