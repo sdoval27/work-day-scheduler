@@ -1,12 +1,10 @@
-//calendar date
-var date = dayjs().format('dddd, MMMM D, YYYY h:mm A');
-$('#currentDay').text(date);
 
 //1) Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
 $(function () {
+  
     // 2) TODO: Add a listener for click events on the save button. This code should
     // use the id in the containing time-block as a key to save the user input in
     // local storage. HINT: What does `this` reference in the click listener
@@ -46,20 +44,34 @@ $(function () {
 
     // USE DIV ID's TO KEEP TRACK OF TIMES!!
 
-    //var textArea = document.queryselector('#calendar-event');
+    var textArea = $('#calendar-event');
+    //turns the current hour into an integer
+    var currentHours = dayjs().format('H');
+    var currentHour = parseInt(currentHours, 10);
+    console.log(currentHour);
 
-    //var timeActual = current HOUR as stated by calendar API
+    
+    //targets each hour of calendar
 
-    //var timeCalendar= Use the id value of the time block
-    //if (timeCalendar < timeActual){
-      //textArea.removeClass('present')
-      //textArea.addClass('past')
-    //}else if (timeCalendar === timeActual) {
-      //textArea.removeClass('future')
-      //textArea.addClass('present')
-    //}else if(timeCalendar > currentTime) {
-      //textArea.addClass('future')
-    //}
+    for (i = 9; i <= 17; i++) {
+
+    var calendarHour = $('#hour-'+ i );
+
+    console.log(calendarHour);
+    console.log(i);
+
+    if (i < currentHour) {
+      calendarHour.addClass('past');
+    }else if (i === currentHour) {
+      calendarHour.addClass('present');
+    }else if (i > currentHour) {
+      calendarHour.addClass('future');
+    }
+
+  }
+    //make color blocks match the current hour with gray for past hours, red current
+    //hour, and green future hours
+    
 
     // 4) TODO: Add code to get any user input that was saved in localStorage and set
     // the values of the corresponding textarea elements. HINT: How can the id
@@ -154,4 +166,7 @@ $(function () {
 
     
     // 5) TODO: Add code to display the current date in the header of the page.
+    //calendar date
+   var date = dayjs().format('dddd, MMMM D, YYYY h:mm A');
+   $('#currentDay').text(date);
   });
