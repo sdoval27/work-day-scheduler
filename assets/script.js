@@ -44,7 +44,7 @@ $(function () {
 
     // USE DIV ID's TO KEEP TRACK OF TIMES!!
 
-    var textArea = $('#calendar-event');
+    
     //turns the current hour into an integer
     var currentHours = dayjs().format('H');
     var currentHour = parseInt(currentHours, 10);
