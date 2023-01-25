@@ -1,9 +1,7 @@
 # work-day-scheduler
 
-
-
-site link: https://sdoval27.github.io/java_script_quiz/u
-repo link: https://github.com/sdoval27/java_script_quiz
+site link: 
+repo link: https://github.com/sdoval27/work-day-scheduler
 
 ## Description
 
@@ -11,7 +9,16 @@ repo link: https://github.com/sdoval27/java_script_quiz
 
 
 ### Usage:
-- This calendar follows a typical 9am to 5pm work schedule with hourly time blocks that change color depending on the current time of day. Gray blocks represent hours that have already passed, red is the current hour, and green highlights the future hours.
+- When opening the page, the website should appear as so:
+![StartPage](./assets/images/WDS-home.png)
+
+- This calendar follows a typical 9am to 5pm work schedule with hourly time blocks that change color as the day progresses. 
+
+- As displayed here, gray blocks represent hours that have already passed, red is the current hour, and green highlights the future hours.
+![TimeBlocks](./assets/images/time-block-colors.png)
+
+- The use can input their calendar schedule by typing directly into the text area on the calendar, then save their information by clicking the blue save button to the right.
+
 
 ## Installation
 
@@ -21,9 +28,8 @@ N/A
 
 https://day.js.org/docs/en/display/format
 
-## Usage
-When opening the page, the website should appear as so:
-![StartPage](./assets/images/---)
+
+
  
 ## License
  
