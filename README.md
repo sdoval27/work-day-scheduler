@@ -1,6 +1,6 @@
 # work-day-scheduler
 
-site link: 
+site link: https://sdoval27.github.io/work-day-scheduler/
 repo link: https://github.com/sdoval27/work-day-scheduler
 
 ## Description
@@ -10,11 +10,13 @@ repo link: https://github.com/sdoval27/work-day-scheduler
 
 ### Usage:
 - When opening the page, the website should appear as so:
+
 ![StartPage](./assets/images/WDS-home.png)
 
 - This calendar follows a typical 9am to 5pm work schedule with hourly time blocks that change color as the day progresses. 
 
 - As displayed here, gray blocks represent hours that have already passed, red is the current hour, and green highlights the future hours.
+
 ![TimeBlocks](./assets/images/time-block-colors.png)
 
 - The use can input their calendar schedule by typing directly into the text area on the calendar, then save their information by clicking the blue save button to the right.
