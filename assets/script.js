@@ -1,172 +1,59 @@
 
-//1) Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
-
-$(function () {
-  
-    // 2) TODO: Add a listener for click events on the save button. This code should
-    // use the id in the containing time-block as a key to save the user input in
-    // local storage. HINT: What does `this` reference in the click listener
-    // function? How can DOM traversal be used to get the "hour-x" id of the
-    // time-block containing the button that was clicked? How might the id be
-    // useful when saving the description in local storage?
-
-    var saveBttn9 = $('#save-9');
-    var saveBttn10 = $('#save-10');
-    var saveBttn11 = $('#save-11');
-    var saveBttn12 = $('#save-12');
-    var saveBttn13 = $('#save-13');
-    var saveBttn14 = $('#save-14');
-    var saveBttn15 = $('#save-15');
-    var saveBttn16 = $('#save-16');
-    var saveBttn17 = $('#save-17');
-
-    //event ('click', function() {
-    //when button is clicked, local storage is retreived for content within the box.
-    //}
-
-    saveBttn9.on ('click', saveEvent);
-    saveBttn10.on('click', saveEvent);
-    saveBttn11.on('click', saveEvent);
-    saveBttn12.on('click', saveEvent);
-    saveBttn13.on('click', saveEvent);
-    saveBttn14.on('click', saveEvent);
-    saveBttn15.on('click', saveEvent);
-    saveBttn16.on('click', saveEvent);
-    saveBttn17.on('click', saveEvent);
-    
-    // 3) TODO: Add code to apply the past, present, or future class to each time
-    // block by comparing the id to the current hour. HINTS: How can the id
-    // attribute of each time-block be used to conditionally add or remove the
-    // past, present, and future classes? How can Day.js be used to get the
-    // current hour in 24-hour time?
-
-    // USE DIV ID's TO KEEP TRACK OF TIMES!!
-
-    var textArea = $('#calendar-event');
+$(function () {   
     //turns the current hour into an integer
     var currentHours = dayjs().format('H');
     var currentHour = parseInt(currentHours, 10);
     console.log(currentHour);
 
-    
-    //targets each hour of calendar
-
+    // 'i' variable targets each hour of calendar
     for (i = 9; i <= 17; i++) {
-
-    var calendarHour = $('#hour-'+ i );
-
-    console.log(calendarHour);
-    console.log(i);
-
-    if (i < currentHour) {
-      calendarHour.addClass('past');
-    }else if (i === currentHour) {
-      calendarHour.addClass('present');
-    }else if (i > currentHour) {
-      calendarHour.addClass('future');
-    }
-
-  }
-    //make color blocks match the current hour with gray for past hours, red current
-    //hour, and green future hours
     
+      var calendarHour = $('#hour-'+ i );
 
-    // 4) TODO: Add code to get any user input that was saved in localStorage and set
-    // the values of the corresponding textarea elements. HINT: How can the id
-    // attribute of each time-block be used to do this?
+      console.log(calendarHour);
+      console.log(i);
+      
+      //controls color blocks as they correspond w time of day
+      if (i < currentHour) {
+      calendarHour.addClass('past');
+      }else if (i === currentHour) {
+      calendarHour.addClass('present');
+      }else if (i > currentHour) {
+      calendarHour.addClass('future');
+      }
+
+    }
 
     //assign localStorage to each individual time block by ID
-    
-    var hour9El = [];
-    hour9El = localStorage.getItem(hour9El);
-   
-    console.log(hour9El);
 
-    //const bttn9 = $("#save-9");
-    
-    var hour10El = [];
-    hour10El = localStorage.getItem(hour10El);
+      $('.saveBtn').on('click', function(){
+        //user calendar value
+        var eventBox = $(this).siblings('textarea').val();
+        //location of the user calendar value
+        var eventKey = $(this).parent().attr('id');
+        //save info to local storage
+        localStorage.getItem(eventKey, eventBox);
 
-    
-    
-    var hour11El = [];
-    hour11El = localStorage.getItem(hour11El);
-   
-    
-    var hour12El = [];
-    hour12El = localStorage.getItem(hour12El);
-   
+        console.log(eventBox);
+        console.log(eventKey);
 
-    var hour13El = [];
-    hour13El = localStorage.getItem(hour13El);
-    
-
-    var hour14El = [];
-    hour14El = localStorage.getItem(hour14El);
-    
-
-    var hour15El = [];
-    hour15El = localStorage.getItem(hour15El);
-    
-
-    var hour16El = [];
-    hour16El = localStorage.getItem(hour16El);
-    
-
-    var hour17El = [];
-    hour17El = localStorage.getItem(hour17El);
-    
-    var hour9Save = document.querySelector('#hour-9');
-    var hour10Save = document.querySelector('#hour-10');
-    var hour11Save = document.querySelector('#hour-11');
-    var hour12Save = document.querySelector('#hour-12');
-    var hour13Save = document.querySelector('#hour-13');
-    var hour14Save = document.querySelector('#hour-14');
-    var hour15Save = document.querySelector('#hour-15');
-    var hour16Save = document.querySelector('#hour-16');
-    var hour17Save = document.querySelector('#hour-17');
-
-
-
-    function saveEvent (){
-      hour9El = hour9Save.value;
-      hour10El = hour10Save.value;
-      hour11El = hour11Save.value;
-      hour12El = hour12Save.value;
-      hour13El = hour13Save.value;
-      hour14El = hour14Save.value;
-      hour15El = hour15Save.value;
-      hour16El = hour16Save.value;
-      hour17El = hour17Save.value;
-
+        localStorage.setItem(eventKey, eventBox);
+      })
       
-      hour10El = localStorage.getItem(hour10El);
-      hour11El = localStorage.getItem(hour11El);
-      hour12El = localStorage.getItem(hour12El);
-      hour13El = localStorage.getItem(hour13El);
-      hour14El = localStorage.getItem(hour14El);
-      hour15El = localStorage.getItem(hour15El);
-      hour16El = localStorage.getItem(hour16El);
-      hour17El = localStorage.getItem(hour17El);
+      //displays info from local storage even after refresh
+    $('#hour-9 textarea').val(localStorage.getItem('hour-9'));
+    $('#hour-10 textarea').val(localStorage.getItem('hour-10'));
+    $('#hour-11 textarea').val(localStorage.getItem('hour-11'));
+    $('#hour-12 textarea').val(localStorage.getItem('hour-12'));
+    $('#hour-13 textarea').val(localStorage.getItem('hour-13'));
+    $('#hour-14 textarea').val(localStorage.getItem('hour-14'));
+    $('#hour-15 textarea').val(localStorage.getItem('hour-15'));
+    $('#hour-16 textarea').val(localStorage.getItem('hour-16'));
+    $('#hour-17 textarea').val(localStorage.getItem('hour-17'));
 
-    }
-
-
-    
-
-
-    //userEvents = get.localstorage('userevent');
-    //var calendarInput = document.queryselector('#calendar-event');
-    //function updateCalendar (){
-    //var userEvent = calendarInput.textContent;
-      //userEvent = getItem.localStorage('userEvent');
-    //}
-
-    
-    // 5) TODO: Add code to display the current date in the header of the page.
+    // Add code to display the current date in the header of the page.
     //calendar date
    var date = dayjs().format('dddd, MMMM D, YYYY h:mm A');
    $('#currentDay').text(date);
+
   });
